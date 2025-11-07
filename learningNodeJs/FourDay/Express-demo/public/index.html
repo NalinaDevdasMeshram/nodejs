@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; connect-src 'self' http://localhost:3000;"
+    />
+    <title>learning express</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="/submit" method="post">
+      <h3>Basic Form</h3>
+      <input
+        type="text"
+        name="username"
+        placeholder="Enter username"
+        required
+      />
+      <input type="email" email="email" placeholder="Enter email" required />
+      <input
+        type="password"
+        password="password"
+        placeholder="Enter Password"
+        required
+      />
+      <button type="submit">Submit</button>
+    </form>
+    <script src="./index.js"></script>
+  </body>
+</html>

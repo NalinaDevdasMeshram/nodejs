@@ -1,0 +1,5 @@
+GET http://localhost:8082/
+### 
+GET http://localhost:8082/currency/USD
+###
+GET http://localhost:8082/currencies/min_value =0.01
