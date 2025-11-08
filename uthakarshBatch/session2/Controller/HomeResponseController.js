@@ -1,6 +1,6 @@
 function getResponse(req, res) {
   res.write(
-    "welcome to learning express js \n go to the second line of the node js"
+    "welcome to learning express js\ngo to the second line of the node js"
   );
   res.end();
 }
@@ -10,7 +10,7 @@ function getAboutResponse(req, res) {
 }
 
 function getContact(req, res) {
-  res.write("124567klk");
+  res.send("124567klk");
 }
 
 module.exports = { getResponse, getAboutResponse, getContact };
