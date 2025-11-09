@@ -7,22 +7,24 @@ function GetAllusers(req, res) {
 // console.log("GetAllusers", GetAllusers, userData);
 
 function GetUserByGender(req, res) {
-  const query = req.params;
+  const query = req.query;
   const quiredGender = query.gender;
   const filterData = userData.data.filter(
     (user) => user.gender === quiredGender
   );
-  res.json({ data: filterData, size: filterData.length });
+  res.json({ data: filterData, count: filterData.length });
 }
 
 function GetUserByFirstName(req, res) {
-  const routeparams = req.params;
-  const queriedFirstparam = routeparams.firstName;
+  const params = req.params;
+  const queriedFirstparam = params.username;
 
   const filterData = userData.data.filter(
-    (person) => person.name.firstName === queriedFirstparam
+    (person) => person.name.first === queriedFirstparam
   );
+
   res.json({ data: filterData, size: filterData.length });
 }
+console.log("GetUserByFirstName", GetUserByFirstName);
 
 module.exports = { GetAllusers, GetUserByFirstName, GetUserByGender };
