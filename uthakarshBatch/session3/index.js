@@ -15,7 +15,7 @@ server.use("/", HomeRouter);
 // use allow the request like (get, post, patch, delete)
 
 server.use("/api/v1/users", ActivityRoutes);
-const databaseURL = "mongodb://localhost:27017";
+const databaseURL = process.env.DB_databaseURL + ":" + process.env.DB_PORT;
 mongoose
   .connect(databaseURL)
   .then(() => console.log("mongoDB Connected Successfully"))
