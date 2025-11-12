@@ -1,7 +1,7 @@
 function createBlog(req, res, next) {
   const body = req.body;
-  console.log("body", body);
-  res.send(`hello world::`, body);
+  const title = req.title;
+  const content = req.content;
 }
 function getAllBlog(req, res, next) {}
 function deleteBlog(req, res, next) {}
