@@ -14,7 +14,9 @@ server.use(express.json()); //is a built-in middleware in Express that automatic
 server.use("/", HomeRouter);
 server.use("/api/v1/users/", Authorize, ActivityUserRoute);
 server.use("/api/v1/blogs", ActivityBlogRoute);
-const databaseURL = process.env.DB_URL + ":" + process.env.DB_PORT;
+const databaseURL =
+  process.env.DB_URL + ":" + process.env.DB_PORT + "/myDatabase";
+
 mongoose
   .connect(databaseURL)
   .then(() => console.log("MONGODB connect successfully"))
