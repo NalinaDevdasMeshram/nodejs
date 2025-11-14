@@ -1,20 +1,19 @@
-const { Blogsuser } = require("../models/Blogs.model");
-const { data } = require("../userData");
+const Blogsuser = require("../models/Blogs.model");
+const BlogsService = require("../Services/BlogsService");
 
 async function createBlog(req, res) {
   const body = req.body;
   const { title, content, author } = body;
 
   //here we have to create an object of blog
-  const blogsobj = new Blogsuser({
-    title,
-    content,
-    author,
-  });
 
   // save this object to database
   try {
-    const response = await blogsobj.save();
+    const response = await BlogsService.createBlogService(
+      title,
+      content,
+      author
+    );
     res.status(201).json({
       message: "blogs create successfully",
       data: response,
@@ -26,6 +25,7 @@ async function createBlog(req, res) {
     });
   }
 }
+
 async function getAllBlog(req, res, next) {
   const response = await Blogsuser.find({});
   const payload = {

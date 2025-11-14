@@ -6,8 +6,11 @@ const {
   deleteBlogbyid,
   getBlogById,
 } = require("../Controllers/BlogController");
+const {
+  BlogInputCheck,
+} = require("../Middleware/inputCheckValidators/BlogsInputCheck");
 
-router.post("/newBlog", createBlog);
+router.post("/newBlog", BlogInputCheck, createBlog);
 router.delete("/delete/:id", deleteBlogbyid);
 router.get("/getAllBlog", getAllBlog);
 router.get("/getBlog/:id", getBlogById);

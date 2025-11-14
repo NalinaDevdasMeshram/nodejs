@@ -1,11 +1,12 @@
+const { required } = require("joi");
 const mongoose = require("mongoose");
 const validatelab = require("validator");
-const BlogsShema = new mongoose.Schema(
+const BlogsSchema = new mongoose.Schema(
   {
     title: {
       type: String,
       trim: true,
-      require: true,
+      required: true,
       minlength: 5,
       maxlength: 100,
       unique: true,
@@ -16,7 +17,7 @@ const BlogsShema = new mongoose.Schema(
     author: {
       type: String,
       trim: true,
-      require: true,
+      required: true,
       validate: (value) => {
         return value;
       },
@@ -24,7 +25,7 @@ const BlogsShema = new mongoose.Schema(
     content: {
       type: String,
       trim: true,
-      require: true,
+      required: true,
       validate: (value) => {
         return validatelab.isAlphanumeric(value);
       },
@@ -33,5 +34,5 @@ const BlogsShema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Blogsuser = mongoose.model("Blogsuser", BlogsShema);
-module.exports = { Blogsuser };
+const Blogsuser = mongoose.model("blogsusers", BlogsSchema);
+module.exports = Blogsuser;
