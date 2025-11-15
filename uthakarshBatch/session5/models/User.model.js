@@ -1,40 +1,41 @@
+const { required } = require("joi");
 const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
       required: true,
       trim: true,
-      unique: true,
     },
     age: {
       type: Number,
-      required: true,
       min: 18,
+      required: true,
       trim: true,
     },
     mobile: {
       type: Number,
       unique: true,
-      require: true,
+      required: true,
       trim: true,
+      length: 10,
     },
     email: {
       type: String,
       unique: true,
-      require: true,
+      required: true,
       trim: true,
       lowercase: true,
     },
 
-    city: {
+    password: {
       type: String,
       trim: true,
-      default: "Unknown", // default value if not provided
+      required: true,
     },
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
-module.exports = { User };
+const Usermodel = mongoose.model("user", userSchema);
+module.exports = Usermodel;
